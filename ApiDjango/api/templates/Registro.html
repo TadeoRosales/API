@@ -1,9 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
-<html >
+<html>
 <head>
     <meta charset="utf-8">
-    <title> Client Login</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="">
 </head>
 <body>
@@ -22,8 +22,6 @@
 	<div class="cont-menu">
 	<nav>
 	<a href= "{% url 'index' %}"> Inicio </a>
-	<a href= "{% url 'Login_Empleado' %}" >Empleado</a>
-	<a href= "{% url 'Login_Cliente' %}"> Cliente </a>
 	</nav>
 	<label for="btn-menu">✖️</label>
     </div>
@@ -34,28 +32,21 @@
 	</nav>
 	<h1 CLASS="h1">BIENVENIDO A BROKMAKE</h1>
     <section class="form-login">
-    <h5>Cliente</h5>
-	<form action="{% url 'loginview' %}" id="login-form"  method="POST">
+    <h5>LLena todos los campos</h5>
+	<form method="post" action="{% url 'Registro_Cliente' %}">
+	{% csrf_token %}
+	<input class="controls" type="text" name="Nombre" value="" placeholder="Nombres">
+	<input class="controls" type="text" name="Apellidos" value="" placeholder="Apellidos">
+    <input class="controls" type="text" name="Usuario" value="" placeholder="Usuario">
+    <input class="controls" type="text" name="password" value="" placeholder="password">
+	<input class="controls" type="text" name="Correo" value="" placeholder="Correo">
+    <input class="controls" type="text" name="CP" value="" placeholder="Codigo Postal">
+	<input class="controls" type="text" name="Telefono" value="" placeholder="Telefono">
+	<input class="controls" type="text" name="Direccion" value="" placeholder="Direccion">
 
-
-		
-    <input class="controls" type="text" name="Correo" value="" placeholder="Correo">
-    <input class="controls" type="password" name="password" value="" placeholder="Contraseña">
-    <a >
-		<button class="buttons">Ingresar</button>
-	</a>
+    <input type="submit" class="buttons" value="Enviar" name="Enviar">
+	</form>
 	
-	<a href="{% url 'Registro' %}">
-		<button class="buttons">Registrate</button>
-	</a>
-	<button  class="loginBtn loginBtn--facebook">
-	Login with Facebook
-	</button>
-	<button class="loginBtn loginBtn--google">
-	Login with Google
-	</button>
-    </section>
-</form>
 <style>
 	* {
 		margin: 0;
@@ -95,7 +86,7 @@
 
 	.form-login {
 		width: 500px;
-		height: 430px;
+		height: 620px;
 		background: #4e4d4d;
 		margin: auto;
 		margin-top: 80px;

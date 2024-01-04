@@ -19,13 +19,19 @@ from django.urls import path
 from api.views import Home 
 from api.views import LoginE
 from api.views import LoginC 
-
-
+from api.views import Registro
+from api.views import Problema 
+from api.views import Registro_ClienteView  
+from api.views import LoginView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Home.as_view(),name='index'),
     path('Login_Empleado',LoginE.as_view(),name='Login_Empleado'),
     path('Login_Cliente',LoginC.as_view(),name='Login_Cliente'),
+    path('Registro',Registro.as_view(),name='Registro'),
+    path('Problema',Problema.as_view(),name='Problema'),
+    path('Registro_Cliente/',Registro_ClienteView.as_view(),name='Registro_Cliente'),
+    path('loginView/', LoginView.as_view(), name='loginview'),
 ]
 
 
