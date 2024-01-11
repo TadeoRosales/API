@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-v6*mq+^c=r949v45k%bx0_3f)zqx-szn1^ja(iuliyq5(s9$5t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -70,7 +70,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ApiDjango.wsgi.application'
+WSGI_APPLICATION = 'gunicorn ApiDjango.wsgi:application'
+#'ApiDjango.wsgi.application'
 
 
 # Database
