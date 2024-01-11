@@ -23,6 +23,7 @@ from api.views import Registro
 from api.views import Problema 
 from api.views import Registro_ClienteView  
 from api.views import LoginView
+from api.views import ProblemasClienteView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Home.as_view(),name='index'),
@@ -32,6 +33,7 @@ urlpatterns = [
     path('Problema',Problema.as_view(),name='Problema'),
     path('Registro_Cliente/',Registro_ClienteView.as_view(),name='Registro_Cliente'),
     path('loginView/', LoginView.as_view(), name='loginview'),
-]
+    path('ProblemaView/', ProblemasClienteView.as_view(), name='Problemaview'),
+] 
 
 

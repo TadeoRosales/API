@@ -38,15 +38,16 @@
 	<form action="{% url 'loginview' %}" id="login-form"  method="POST">
 
 
-		
-    <input class="controls" type="text" name="Correo" value="" placeholder="Correo">
-    <input class="controls" type="password" name="password" value="" placeholder="Contraseña">
+    <input class="controls" type="text" name="Correo" value="Correo" placeholder="Correo">
+    <input class="controls" type="password" name="password" value="password" placeholder="password">
     <a >
-		<button class="buttons">Ingresar</button>
+	<button class="buttons">Ingresar</button>
 	</a>
-	
+</form>
+
+
 	<a href="{% url 'Registro' %}">
-		<button class="buttons">Registrate</button>
+	<button class="buttons">Registrate</button>
 	</a>
 	<button  class="loginBtn loginBtn--facebook">
 	Login with Facebook
@@ -55,7 +56,7 @@
 	Login with Google
 	</button>
     </section>
-</form>
+
 <style>
 	* {
 		margin: 0;

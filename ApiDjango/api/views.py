@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework.views import APIView
 from .forms import Registro_Cliente
+from .forms import ProblemasCliente 
 from .models import RegistroCliente
 from django.conf import settings
 from django.core.mail import send_mail
@@ -64,22 +65,39 @@ class Registro_ClienteView(APIView):
     
 
 class LoginView(APIView):
-    template_name = 'Login_Cliente.html' #Plantilla de inicio de sesion
-   
-    def get (self,request):
-     return render (request, self.template_name)
-   
-    def post (self, request):
-     Correo = request.POST.get('Correo')
-     password = request.POST.get('password')
-     
-     #consulta a los usuarios ingresados en la base de datos
-     try:
-        Registro_c=RegistroCliente.objects.get(Correo=Correo, password=password)
-     except RegistroCliente.DoesNotExist:
-        Registro_c=None
+    template_name = 'Login_Cliente.html' # Plantilla de inicio de sesión
 
-     if Registro_c is not None:
-        return redirect('Problema.html')
-     else:
-        return render(request,self.template_name,{'error_message':'Datos invalidos Intentalo nuevamente'})
+    def get(self, request):
+        return render(request, self.template_name)
+    
+    def post(self, request):
+        Correo = request.POST.get('Correo')
+        password = request.POST.get('password')
+        
+        # Consulta a los usuarios ingresados en la base de datos
+        try:
+            Registro = RegistroCliente.objects.get(Correo=Correo, password=password)
+        except RegistroCliente.DoesNotExist:
+            Registro = None
+        
+        if Registro is not None:
+            return redirect('Problema')
+        else:
+            return render(request, self.template_name, {'error_message': 'Datos inválidos. Inténtalo nuevamente'})
+
+
+class ProblemasClienteView(APIView):
+    template_name = 'Problema.html'
+    
+    def post(self, request):
+        form = ProblemasCliente(request.POST)
+        if form.is_valid():
+            Problema_instance = form.save()
+            return redirect('Problema') 
+        else:
+            print(form.errors) 
+
+        
+        return render(request, self.template_name, {'form': form})
+    
+        

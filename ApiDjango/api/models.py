@@ -11,3 +11,18 @@ class RegistroCliente(models.Model):
     CP = models.CharField(max_length=100)
     Telefono = models.CharField(max_length=100)
     Direccion = models.CharField(max_length=100)
+class ProblemaCliente(models.Model):
+    Nombre = models.CharField(max_length=100)
+    ProblemaC = models.CharField(max_length=100)
+    Descripcion = models.CharField(max_length=100)
+    
+class ProblemaClientes(models.Model):
+    Nombre = models.CharField(max_length=100)
+    ProblemaC = models.CharField(max_length=100)
+    Descripcion = models.CharField(max_length=100)
+
+class registroProblemas(models.Model):
+    Nombre = models.CharField(max_length=100)
+    Direccion = models.CharField(max_length=100)
+    ProblemaC = models.CharField(max_length=100)
+    

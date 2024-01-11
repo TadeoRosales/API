@@ -32,23 +32,31 @@
 	</nav>
 	<h1 CLASS="h1">BIENVENIDO A BROKMAKE</h1>
     <section class="form-login">
-    <h5>¿Como podemos ayudarte?</h5>
-    <select name="opciones">
-        <option value="opcion1">No hay internet</option>
-        <option value="opcion2">Se rompio el cable de red</option>
-        <option value="opcion3">No funciona el router</option>
-        <option value="opcion4">no hay señal</option>
-    </select>
-    <br>
-    <br>
-    <a>¿Puedes describir el problema de tu falla de internet?</a>
-    <br>
-    <br>
-    <input class="controls" type="text" name="Problema" value="" placeholder="Problema">
 	
-	<a href="{% url 'Registro' %}">
-		<button class="buttons">Registrate</button>
+    <h5>¿Como podemos ayudarte?</h5>
+	<form action="{% url 'Problemaview' %}" id="login-form"  method="POST">
+	<br>
+	<a>¿Cual es tu Nombre?</a>
+    <br>
+    <br>
+    <input class="controls" type="text" name="Nombre" value="" placeholder="Nombre">
+    
+    <br>
+    <br>
+    <a>¿Cual es tu direccion?</a>
+    <br>
+    <br>
+    <input class="controls" type="text" name="Direccion" value="" placeholder="Direccion">
+	<br>
+    <br>
+    <a>¿Cual es el problema que presenta tu servicio?</a>
+    <br>
+    <br>
+    <input class="controls" type="text" name="ProblemaC" value="" placeholder="ProblemaC">
+	<a>
+	<button class="buttons">Enviar</button>
 	</a>
+</form>
 <style>
 	* {
 		margin: 0;
@@ -88,7 +96,7 @@
 
 	.form-login {
 		width: 500px;
-		height: 300px;
+		height: 500px;
 		background: #4e4d4d;
 		margin: auto;
 		margin-top: 80px;
@@ -151,8 +159,8 @@
 		border-radius: 0.2em;
 		font-size: 16px;
 		color: #FFF;
-	  }
-	  .loginBtn:before {
+    }
+	.loginBtn:before {
 		content: "";
 		box-sizing: border-box;
 		position: absolute;
