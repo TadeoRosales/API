@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'APIDJANGO.wsgi.application'
+WSGI_APPLICATION = 'ApiDjango.wsgi.application'
 #'gunicorn ApiDjango.wsgi:application//'
 
 
