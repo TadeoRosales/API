@@ -33,7 +33,16 @@ class Problema (APIView):
     template_name = 'Problema.html'
     def get(self, request):
         return render(request,self.template_name)
+
+class AdminB (APIView):
+    template_name = 'AdminB.html'
+    def get(self, request):
+        return render(request,self.template_name)
     
+class RegistroEmpleados (APIView):
+    template_name = 'Registro_Empleados.html'
+    def get(self, request):
+        return render(request,self.template_name)    
     
     #Manejo de Formulario de registro de clientes 
 class Registro_ClienteView(APIView):
